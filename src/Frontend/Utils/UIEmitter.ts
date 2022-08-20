@@ -21,6 +21,8 @@ export const enum UIEmitterEvent {
 
   ZoomIn = 'ZoomIn',
   ZoomOut = 'ZoomOut',
+  Zoomed = 'Zoomed',
+  Panned = 'Panned',
 
   SendInitiated = 'SendInitiated',
   SendCancelled = 'SendCancelled',

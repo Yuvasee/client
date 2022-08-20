@@ -26,7 +26,7 @@ import { SettingsPane } from '../Panes/Game/SettingsPane';
 import { SpectatorInfoPane } from '../Panes/Game/SpectatorInfoPane';
 import { SurveyPane } from '../Panes/Game/SurveyPane';
 import { TransactionLogPane } from '../Panes/Game/TransactionLogPane';
-import { TutorialPane } from '../Panes/Game/TutorialPane';
+import { TutorialPane } from '../Panes/Game/TutorialPane2';
 import { TwitterVerifyPane } from '../Panes/Game/TwitterVerifyPane';
 import { ZoomPane } from '../Panes/ZoomPane';
 import { useSelectedPlanet, useUIManager } from '../Utils/AppHooks';
@@ -100,7 +100,8 @@ export function GameWindowLayout({
   const [showTutorialSetting] = useBooleanSetting(uiManager, Setting.ShowTutorial);
   const showTutorial = isTutorialWorld || showTutorialSetting;
   const [showSpectatorInfo] = useBooleanSetting(uiManager, Setting.ShowSpectatorInfo);
-  const [showArenaBriefing] = useBooleanSetting(uiManager, Setting.ShowArenaBriefing);
+  const [showArenaBriefingSetting] = useBooleanSetting(uiManager, Setting.ShowArenaBriefing);
+  const showArenaBriefing = !isTutorialWorld && showArenaBriefingSetting;
   const selected = useSelectedPlanet(uiManager).value;
   const [selectedPlanetVisible, setSelectedPlanetVisible] = useState<boolean>(!!selected);
 

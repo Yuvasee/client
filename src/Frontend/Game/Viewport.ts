@@ -337,6 +337,7 @@ class Viewport {
 
       this.centerWorldCoords.x += dx;
       this.centerWorldCoords.y += dy;
+      uiEmitter.emit(UIEmitterEvent.Panned, { dx, dy });
     } else {
       const worldCoords = this.canvasToWorldCoords(canvasCoords);
       uiEmitter.emit(UIEmitterEvent.WorldMouseMove, worldCoords);
@@ -401,6 +402,9 @@ class Viewport {
       this.centerWorldCoords.y = newCenter.y;
 
       this.setWorldWidth(newWidth);
+
+      const uiEmitter = UIEmitter.getInstance();
+      uiEmitter.emit(UIEmitterEvent.Zoomed, deltaY);
     }
   }
 
